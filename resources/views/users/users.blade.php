@@ -21,7 +21,7 @@
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
                             <td scope="col" class="px-6 py-3">{{ $user->name }}</td>
                             <td scope="col" class="px-6 py-3">{{ $user->email }}</td>
-                            <td scope="col" class="px-6 py-3"><a href="">Editar</a> <a href="" class="ml-4">Excluir</a></td>
+                            <td scope="col" class="px-6 py-3"><a href="{{ route('users.edit', $user) }}">Editar</a> <a href="" class="ml-4">Excluir</a></td>
                         </tr>
                         @empty
                         <tr>
