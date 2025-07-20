@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserUpdateRequest;
 use app\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -31,5 +32,18 @@ class UserController extends Controller
         $user->update($data);
 
         return redirect()->route('users')->with('success', 'Usuário alterado com sucesso!');
+    }
+
+    public function delete(string $id) {
+        if (!$user = User::find($id)){
+            return redirect()->route('users')->with('message', 'Usuário não encontrado!');
+        }
+
+        if ($user->id === Auth::id()) {
+            return redirect()->route('users')->with('message','Você não pode apagar a si mesmo!');
+        }
+
+        $user->delete();
+        return redirect()->route('users')->with('message', 'Usuário excluido com sucesso!');
     }
 }

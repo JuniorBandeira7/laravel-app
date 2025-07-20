@@ -13,7 +13,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users', [UserController::class, 'getAllUsers'])->name('users');
     Route::get('/products', [ProductController::class, 'getAllProducts'])->name('products');
     Route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [UserController::class, 'delete'])->name('users.delete');
 });
 
 
