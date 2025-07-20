@@ -1,11 +1,11 @@
 @if (session()->has('success'))
-    <div>{{ session('success') }}</div>
+    <div class="text-gray-800 dark:text-gray-200 flex justify-center mt-4">{{ session('success') }}</div>
 @endif
 
-@id (session()->has('message'))
-    <div>{{ session(('message')) }}</div>
+@if (session()->has('message'))
+    <div class="text-gray-800 dark:text-gray-200 flex justify-center mt-4">{{ session(('message')) }}</div>
 @endif
 
 @if (session()->has('error'))
-    <div>{{ session('error') }}</div>
+    <div class="text-gray-800 dark:text-gray-200 flex justify-center mt-4">{{ session('error') }}</div>
 @endif
